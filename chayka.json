@@ -1,0 +1,29 @@
+{
+    "appType": "plugin",
+    "appName": "Chayka.DoorKeeper",
+    "appDescription": "WP plugin to restrict site access to registered users only",
+    "appKeywords": "WordPress, Chayka",
+    "appVersion": "0.0.1",
+    "appAuthor": "Boris Mossounov",
+    "appAuthorEmail": "borix@tut.by",
+    "appAuthorUri": "http://anotherguru.me/",
+    "appLicense": "proprietary",
+    "phpNamespace": "Chayka\\DoorKeeper",
+    "chaykaFramework": "plugin",
+    "chaykaFrameworkDeps": {
+        "helpers": true,
+        "mvc": true,
+        "wp": true,
+        "core": true
+    },
+    "support": [
+        "UriProcessing",
+        "ConsolePages"
+    ],
+    "register": [
+        "registerActions",
+        "registerFilters",
+        "registerResources",
+        "registerConsolePages"
+    ]
+}

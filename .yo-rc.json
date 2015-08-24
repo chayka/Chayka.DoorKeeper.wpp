@@ -1,0 +1,45 @@
+{
+  "generator-chayka": {
+    "support": [
+      "UriProcessing",
+      "ConsolePages"
+    ],
+    "register": [
+      "registerActions",
+      "registerFilters",
+      "registerResources",
+      "registerConsolePages"
+    ],
+    "appType": "plugin",
+    "appName": "Chayka.DoorKeeper",
+    "appDescription": "WP plugin to restrict site access to registered users only",
+    "appKeywords": "WordPress, Chayka",
+    "appVersion": "0.0.1",
+    "packagistVendor": "chayka",
+    "packagistPackage": "doorkeeper-wpp",
+    "phpNamespace": "Chayka\\DoorKeeper",
+    "chaykaFramework": "plugin",
+    "chaykaFrameworkDeps": {
+      "helpers": true,
+      "mvc": true,
+      "wp": true,
+      "core": true
+    },
+    "initDep": true,
+    "initDepPhpClass": "Chayka\\WP\\Plugin",
+    "initDepMessage": "Chayka Framework functionality is not available",
+    "gitInit": true,
+    "gitRemote": "github",
+    "githubUser": "chayka",
+    "gitRemoteRepo": "git@github.com:chayka/Chayka.DoorKeeper.wpp.git",
+    "gitPush": true,
+    "ideaProject": "Chayka.DoorKeeper.wpp",
+    "ideaDeploymentPath": "/Chayka.Core.wpp/vendor/chayka/doorkeeper-wpp",
+    "appAuthor": "Boris Mossounov",
+    "appAuthorEmail": "borix@tut.by",
+    "appAuthorUri": "http://anotherguru.me/",
+    "appLicense": "proprietary",
+    "ideaDeploymentServer": "WP Plugins",
+    "appClass": "Plugin"
+  }
+}

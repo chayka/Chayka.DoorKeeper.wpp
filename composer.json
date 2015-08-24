@@ -1,0 +1,26 @@
+{
+    "name": "chayka/doorkeeper-wpp",
+    "description": "WP plugin to restrict site access to registered users only",
+    "minimum-stability": "dev",
+    "license": "proprietary",
+    "version": "0.0.1",
+    "authors": [
+        {
+            "name": "Boris Mossounov",
+            "email": "borix@tut.by"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "app/helpers",
+            "app/models",
+            "Plugin.php"
+        ]
+    },
+    "require": {},
+    "requireDev": {},
+    "suggest": {
+        "chayka/wp": "dev-master",
+        "chayka/core-wpp": "dev-master"
+    }
+}
