@@ -57,6 +57,8 @@ class Plugin extends WP\Plugin{
      * Registering console pages
      */
     public function registerConsolePages(){
+        $this->addConsolePage('DoorKeeper', 'update_core', 'doorkeeper', '/admin/doorkeeper', 'dashicons-lock', '80.48294395627454');
+
         /* chayka: registerConsolePages */
     }
 }
