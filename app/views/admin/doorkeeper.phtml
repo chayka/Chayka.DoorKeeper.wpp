@@ -1,0 +1,36 @@
+<h2>DoorKeeper</h2>
+
+<div data-ng-cloak>
+    <div data-ng-controller="optionsForm" data-ng-init="namespace = 'Chayka.DoorKeeper'">
+        <form data-form-validator="validator" novalidate="novalidate">
+            <?php wp_enqueue_media(); ?>
+            <div class="form_field fullsize image" data-form-field="image">
+		        <label class="">DoorKeeper page image</label>
+		        <input type="hidden" data-ng-init="options.image=''" data-ng-model="options.image" title="DoorKeeper page image"/>
+		        <div data-media-picker data-mode="id" data-size="full" data-model="options.image" data-picker-button-text="Pick Image" data-title="DoorKeeper page image" >
+			        {{}}
+		        </div>
+	        </div>
+            <div class="form_field fullsize title" data-form-field="title">
+                <label class="">DoorKeeper page title</label><input type="text" data-ng-init="options.title='The site is currently under construction'" data-ng-model="options.title" title="DoorKeeper page title"/>
+            </div>
+            <div class="form_field fullsize message" data-form-field="message">
+                <label class="">DoorKeeper page message</label><textarea data-ng-init="options.message='The site is currently out of service. Only administrators are allowed.'" data-ng-model="options.message" title="DoorKeeper page message"></textarea>
+            </div>
+            <div class="form_field fullsize min_user_level" data-form-field="minUserLevel">
+                <label class="">Minimal user role to access site</label><select data-ng-init="options.minUserLevel='administrator'; minUserLevelOptions = {'administrator':'Administrator','editor':'Editor','author':'Author','contributor':'Contributor','subscriber':'Subscriber'}" data-ng-model="options.minUserLevel" data-ng-options="key as value for (key, value) in minUserLevelOptions" title="Minimal user role to access site"></select>
+            </div>
+            <div class="form_field fullsize checkbox enabled" data-form-field="enabled">
+                <label>
+                    <input type="checkbox" data-ng-init="options.enabled=''" data-ng-model="options.enabled" data-ng-true-value="'1'" data-ng-false-value="''" title="DoorKeeper enabled"/>
+                    DoorKeeper enabled
+                </label>
+            </div>
+
+	        <!-- chayka: fields -->
+            <div class="buttons">
+                <button class="button button-primary button-large" data-ng-click="saveOptions();">Save</button>
+            </div>
+        </form>
+    </div>
+</div>

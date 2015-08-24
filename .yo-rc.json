@@ -48,6 +48,9 @@
       "Admin": [
         "doorkeeper"
       ]
-    }
+    },
+    "helpers": [
+      "option"
+    ]
   }
 }
