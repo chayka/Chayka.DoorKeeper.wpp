@@ -2,7 +2,10 @@
 
 namespace Chayka\DoorKeeper;
 
+use Chayka\Helpers\Util;
 use Chayka\WP;
+use Chayka\WP\Helpers\AclHelper;
+use Chayka\WP\Helpers\JsonHelper;
 
 class Plugin extends WP\Plugin{
 
@@ -14,6 +17,7 @@ class Plugin extends WP\Plugin{
         if(!static::$instance){
             static::$instance = $app = new self(__FILE__, array(
                 /* chayka: init-controllers */
+                'door-keeper'
             ));
             $app->dbUpdate(array());
 	        $app->addSupport_UriProcessing();
@@ -22,6 +26,37 @@ class Plugin extends WP\Plugin{
 
             /* chayka: init-addSupport */
         }
+    }
+
+    public function inspectUri($uri){
+        if(!OptionHelper::getOption('enabled')){
+            return $uri;
+        }
+        if(AclHelper::userHasRole(OptionHelper::getOption('minUserLevel', 'administrator'))){
+            return $uri;
+        }
+
+        $allowedRoutes = array(
+            'wp-login.php',
+            'auth'
+        );
+        $m=array();
+    //            die('['.$uri.']');
+        preg_match('%^(\/api)?\/([^\/\?]*)%i', $uri, $m);
+
+        $isApi = Util::getItem($m, 1);
+        $route = Util::getItem($m, 2);
+        if(in_array($route, $allowedRoutes)){
+            return $uri;
+        }
+
+        header("HTTP/1.1 503 Service Unavailable");
+        if($isApi){
+            JsonHelper::respondError(OptionHelper::getOption('message'), 'site_blocked');
+        }
+
+        $uri = '/door-keeper/door-closed';
+        return OptionHelper::getOption('useHeaderFooter')?$uri:'/api'.$uri;
     }
 
 
@@ -37,6 +72,7 @@ class Plugin extends WP\Plugin{
      */
     public function registerFilters() {
 		/* chayka: registerFilters */
+        $this->addFilter('Chayka.WP.Query.parseRequest', 'inspectUri');
     }
 
     /**
@@ -60,5 +96,12 @@ class Plugin extends WP\Plugin{
         $this->addConsolePage('DoorKeeper', 'update_core', 'doorkeeper', '/admin/doorkeeper', 'dashicons-lock', '80.48294395627454');
 
         /* chayka: registerConsolePages */
+    }
+
+    /**
+     * Routes are to be added here via $this->addRoute();
+     */
+    public function registerRoutes() {
+        $this->addRoute('default');
     }
 }

@@ -1,0 +1,61 @@
+<?php
+$this->declareVars(array(
+    'title' => '',
+    'message' => '',
+    'image' => null,
+    'useHeaderFooter' => false,
+));
+
+$chaykaAuthUsed = class_exists('\\Chayka\\Auth\\Plugin');
+
+if(!$this->useHeaderFooter):?><!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <?php // show_admin_bar(false);?>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title><?php bloginfo( 'name' ); ?></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!--wp head-->
+    <?php wp_head();?>
+    <!--wp head-->
+</head>
+<body>
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+<?php endif;?>
+<style>
+    .box{
+        position: relative;
+        top: 200px;
+        text-align: center;
+    }
+
+    .box img{
+        max-height: 150px;
+        width: auto;
+    }
+</style>
+<div class="door_keeper door_closed">
+    <div class="box">
+        <?php if($this->image):?>
+            <a href="<?php echo $chaykaAuthUsed?'#login':'/wp-login.php'?>"><img src="<?php echo $this->image['url'];?>"/></a>
+        <?php endif;?>
+        <h1><?php echo $this->title;?></h1>
+        <div class="message">
+            <?php echo $this->message;?>
+        </div>
+    </div>
+</div>
+<?php if(!$this->needHeaderFooter):?>
+<?php wp_footer();?>
+
+</body>
+</html>
+<?php endif;

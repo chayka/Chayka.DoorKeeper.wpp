@@ -8,7 +8,8 @@
       "registerActions",
       "registerFilters",
       "registerResources",
-      "registerConsolePages"
+      "registerConsolePages",
+      "registerRoutes"
     ],
     "appType": "plugin",
     "appName": "Chayka.DoorKeeper",
@@ -22,8 +23,7 @@
     "chaykaFrameworkDeps": {
       "helpers": true,
       "mvc": true,
-      "wp": true,
-      "core": true
+      "wp": true
     },
     "initDep": true,
     "initDepPhpClass": "Chayka\\WP\\Plugin",
@@ -39,7 +39,6 @@
     "appAuthorEmail": "borix@tut.by",
     "appAuthorUri": "http://anotherguru.me/",
     "appLicense": "proprietary",
-    "ideaDeploymentServer": "WP Plugins",
     "appClass": "Plugin",
     "consolePages": [
       "doorkeeper"
@@ -47,6 +46,9 @@
     "controllers": {
       "Admin": [
         "doorkeeper"
+      ],
+      "DoorKeeper": [
+        "door-closed"
       ]
     },
     "helpers": [
