@@ -17,6 +17,9 @@
             <div class="form_field fullsize message" data-form-field="message">
                 <label class="">DoorKeeper page message</label><textarea data-ng-init="options.message='The site is currently out of service. Only administrators are allowed.'" data-ng-model="options.message" title="DoorKeeper page message"></textarea>
             </div>
+            <div class="form_field fullsize allowed_routes" data-form-field="allowedRoutes">
+                <label class="">Allowed Routes</label><textarea data-ng-init="options.allowedRoutes=''" data-ng-model="options.allowedRoutes" title="Allowed Routes"></textarea>
+            </div>
             <div class="form_field fullsize min_user_level" data-form-field="minUserLevel">
                 <label class="">Minimal user role to access site</label><select data-ng-init="options.minUserLevel='administrator'; minUserLevelOptions = {'administrator':'Administrator','editor':'Editor','author':'Author','contributor':'Contributor','subscriber':'Subscriber'}" data-ng-model="options.minUserLevel" data-ng-options="key as value for (key, value) in minUserLevelOptions" title="Minimal user role to access site"></select>
             </div>
@@ -32,6 +35,7 @@
                     Use theme header and footer
                 </label>
             </div>
+
 
 
 	        <!-- chayka: fields -->
