@@ -40,8 +40,11 @@ class Plugin extends WP\Plugin{
             'wp-login.php',
             'auth'
         );
-        $customAllowedRoutes = preg_split('/\s+/m', OptionHelper::getOption('allowedRoutes'));
-        $allowedRoutes = array_merge($allowedRoutes, $customAllowedRoutes);
+        $customAllowedRoutes = trim(OptionHelper::getOption('allowedRoutes'));
+        if($customAllowedRoutes){
+            $customAllowedRoutes = preg_split('/\s+/m', OptionHelper::getOption('allowedRoutes'));
+            $allowedRoutes = array_merge($allowedRoutes, $customAllowedRoutes);
+        }
         $m=array();
     //            die('['.$uri.']');
         preg_match('%^(\/api)?\/([^\/\?]*)%i', $uri, $m);
