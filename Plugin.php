@@ -32,7 +32,7 @@ class Plugin extends WP\Plugin{
         if(!OptionHelper::getOption('enabled')){
             return $uri;
         }
-        if(AclHelper::userHasRole(OptionHelper::getOption('minUserLevel', 'administrator'))){
+        if(AclHelper::userHasRoleLevel(OptionHelper::getOption('minUserLevel', 'administrator'))){
             return $uri;
         }
 
