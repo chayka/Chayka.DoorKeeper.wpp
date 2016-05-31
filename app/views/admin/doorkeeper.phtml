@@ -1,8 +1,7 @@
 <h2>DoorKeeper</h2>
 
-<div data-ng-cloak>
-    <div data-ng-controller="optionsForm" data-ng-init="namespace = 'Chayka.DoorKeeper'">
-        <form data-form-validator="validator" novalidate="novalidate">
+<div data-ng-cloak data-ng-init="options={};">
+    <div data-console-page-options="options" data-namespace="Chayka.DoorKeeper">
             <?php wp_enqueue_media(); ?>
             <div class="form_field fullsize image" data-form-field="image">
 		        <label class="">DoorKeeper page image</label>
@@ -39,9 +38,5 @@
 
 
 	        <!-- chayka: fields -->
-            <div class="buttons">
-                <button class="button button-primary button-large" data-ng-click="saveOptions();">Save</button>
-            </div>
-        </form>
     </div>
 </div>
