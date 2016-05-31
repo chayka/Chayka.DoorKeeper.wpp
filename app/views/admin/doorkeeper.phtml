@@ -1,42 +1,40 @@
 <h2>DoorKeeper</h2>
 
-<div data-ng-cloak data-ng-init="options={};">
-    <div data-console-page-options="options" data-namespace="Chayka.DoorKeeper">
-            <?php wp_enqueue_media(); ?>
-            <div class="form_field fullsize image" data-form-field="image">
-		        <label class="">DoorKeeper page image</label>
-		        <input type="hidden" data-ng-init="options.image=''" data-ng-model="options.image" title="DoorKeeper page image"/>
-		        <div data-media-picker data-mode="id" data-size="full" data-model="options.image" data-picker-button-text="Pick Image" data-title="DoorKeeper page image" >
-			        {{}}
-		        </div>
-	        </div>
-            <div class="form_field fullsize title" data-form-field="title">
-                <label class="">DoorKeeper page title</label><input type="text" data-ng-init="options.title='The site is currently under construction'" data-ng-model="options.title" title="DoorKeeper page title"/>
-            </div>
-            <div class="form_field fullsize message" data-form-field="message">
-                <label class="">DoorKeeper page message</label><textarea data-ng-init="options.message='The site is currently out of service. Only administrators are allowed.'" data-ng-model="options.message" title="DoorKeeper page message"></textarea>
-            </div>
-            <div class="form_field fullsize allowed_routes" data-form-field="allowedRoutes">
-                <label class="">Allowed Routes</label><textarea data-ng-init="options.allowedRoutes=''" data-ng-model="options.allowedRoutes" title="Allowed Routes"></textarea>
-            </div>
-            <div class="form_field fullsize min_user_level" data-form-field="minUserLevel">
-                <label class="">Minimal user role to access site</label><select data-ng-init="options.minUserLevel='administrator'; minUserLevelOptions = {'administrator':'Administrator','editor':'Editor','author':'Author','contributor':'Contributor','subscriber':'Subscriber'}" data-ng-model="options.minUserLevel" data-ng-options="key as value for (key, value) in minUserLevelOptions" title="Minimal user role to access site"></select>
-            </div>
-            <div class="form_field fullsize checkbox enabled" data-form-field="enabled">
-                <label>
-                    <input type="checkbox" data-ng-init="options.enabled=''" data-ng-model="options.enabled" data-ng-true-value="'1'" data-ng-false-value="''" title="DoorKeeper enabled"/>
-                    DoorKeeper enabled
-                </label>
-            </div>
-            <div class="form_field fullsize checkbox use_header_footer" data-form-field="useHeaderFooter">
-                <label>
-                    <input type="checkbox" data-ng-init="options.useHeaderFooter=''" data-ng-model="options.useHeaderFooter" data-ng-true-value="'1'" data-ng-false-value="''" title="Use theme header and footer"/>
-                    Use theme header and footer
-                </label>
-            </div>
-
-
-
-	        <!-- chayka: fields -->
+<div data-console-page-options="options" data-namespace="Chayka.DoorKeeper" data-ng-init="options={};" data-ng-cloak>
+    <?php wp_enqueue_media(); ?>
+    <div class="form_field fullsize image" data-form-field="image">
+        <label class="">DoorKeeper page image</label>
+        <input type="hidden" data-ng-init="options.image=''" data-ng-model="options.image" title="DoorKeeper page image"/>
+        <div data-media-picker data-mode="id" data-size="full" data-model="options.image" data-picker-button-text="Pick Image" data-title="DoorKeeper page image" >
+            {{}}
+        </div>
     </div>
+    <div class="form_field fullsize title" data-form-field="title">
+        <label class="">DoorKeeper page title</label><input type="text" data-ng-init="options.title='The site is currently under construction'" data-ng-model="options.title" title="DoorKeeper page title"/>
+    </div>
+    <div class="form_field fullsize message" data-form-field="message">
+        <label class="">DoorKeeper page message</label><textarea data-ng-init="options.message='The site is currently out of service. Only administrators are allowed.'" data-ng-model="options.message" title="DoorKeeper page message"></textarea>
+    </div>
+    <div class="form_field fullsize allowed_routes" data-form-field="allowedRoutes">
+        <label class="">Allowed Routes</label><textarea data-ng-init="options.allowedRoutes=''" data-ng-model="options.allowedRoutes" title="Allowed Routes"></textarea>
+    </div>
+    <div class="form_field fullsize min_user_level" data-form-field="minUserLevel">
+        <label class="">Minimal user role to access site</label><select data-ng-init="options.minUserLevel='administrator'; minUserLevelOptions = {'administrator':'Administrator','editor':'Editor','author':'Author','contributor':'Contributor','subscriber':'Subscriber'}" data-ng-model="options.minUserLevel" data-ng-options="key as value for (key, value) in minUserLevelOptions" title="Minimal user role to access site"></select>
+    </div>
+    <div class="form_field fullsize checkbox enabled" data-form-field="enabled">
+        <label>
+            <input type="checkbox" data-ng-init="options.enabled=''" data-ng-model="options.enabled" data-ng-true-value="'1'" data-ng-false-value="''" title="DoorKeeper enabled"/>
+            DoorKeeper enabled
+        </label>
+    </div>
+    <div class="form_field fullsize checkbox use_header_footer" data-form-field="useHeaderFooter">
+        <label>
+            <input type="checkbox" data-ng-init="options.useHeaderFooter=''" data-ng-model="options.useHeaderFooter" data-ng-true-value="'1'" data-ng-false-value="''" title="Use theme header and footer"/>
+            Use theme header and footer
+        </label>
+    </div>
+
+
+
+    <!-- chayka: fields -->
 </div>
